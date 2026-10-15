@@ -1,0 +1,17 @@
+[package]
+name = "moss-ember"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+name = "moss_ember"
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+anyhow = "1"
+serde = { version = "1", features = ["derive"] }
+fission = { version = "0.14.1", default-features = false, features = ["desktop", "site"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+console_error_panic_hook = "0.1"
+wasm-bindgen = "0.2"
